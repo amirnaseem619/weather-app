@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette from design brief */
+  --color-primary: #2563eb;
+  --color-sky: #38bdf8;
+  --color-cloud: #cbd5e1;
+  --color-dark: #0f172a;
+  --color-rain: #0ea5e9;
+  --color-sun: #facc15;
+  --color-bg: #f8fafc;
+
+  /* Extended tonal range for depth (derived from brief palette) */
+  --color-sky-deep: #0c4a6e;
+  --color-night: #020617;
+  --color-night-soft: #0b1220;
+  --color-dusk: #1e293b;
+  --color-storm: #475569;
+  --color-mist: #e2e8f0;
+  --color-frost: #f0f9ff;
+
+  --font-display: "Poppins", "Inter", sans-serif;
+  --font-body: "Inter", "Poppins", sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-drift: drift 40s linear infinite;
+  --animate-twinkle: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes drift {
+  from { transform: translateX(-10%); }
+  to { transform: translateX(110%); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Custom scrollbar for horizontal forecast sliders */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.5);
+  border-radius: 10px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
